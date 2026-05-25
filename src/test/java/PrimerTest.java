@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -25,6 +26,7 @@ public class PrimerTest {
         driver.quit();
     }
 
+
     @Test
     void creteTestDriver(){
         driver.get("https://www.google.com");
@@ -35,4 +37,18 @@ public class PrimerTest {
             barraBusqueda.submit();
         }
     }
+
+    /*
+    @Test
+    void verificarTitulPaginaBusqueda(){
+        driver.get("https://www.google.com");
+        var buscar = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("q")));
+        if (buscar.isDisplayed()){
+            buscar.sendKeys("Selenium");
+            buscar.submit();
+        }
+        assert "Selenium - Buscar con Google".equals(driver.getTitle());
+    }
+    esto no corre por el detector de bots de google.
+     */
 }
