@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import java.time.Duration;
 
-public class LoginTest {
+public class InitialLoginTest {
     WebDriver driver;
     WebDriverWait wait;
     @BeforeMethod
