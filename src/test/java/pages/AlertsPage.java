@@ -13,35 +13,43 @@ public class AlertsPage extends BasePage {
     private static final By textRequestedAlertButton = By.xpath("//button[text()='Click for JS Prompt']");
     private By textDisplayed = By.id("result");
 
-    public AlertsPage(WebDriver driver, WebDriverWait wait){
-        super(driver , wait );
+    public AlertsPage(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
     }
-    public void goToPage(){
+
+    public void goToPage() {
         driver.get(URL);
     }
 
     private void clickButton(By button) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(button)).click();
     }
-    public String getTextDisplayed(){
+
+    public String getTextDisplayed() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(textDisplayed)).getText();
     }
-    public void clickSimpleAlert(){
+
+    public void clickSimpleAlert() {
         clickButton(simpleAlertButton);
     }
-    public void clickConfirmAlert(){
+
+    public void clickConfirmAlert() {
         clickButton(confirmAlertButton);
     }
-    public void clickTextRequestAlert(){
+
+    public void clickTextRequestAlert() {
         clickButton(textRequestedAlertButton);
     }
-    public void acceptAlert(){
+
+    public void acceptAlert() {
         wait.until(ExpectedConditions.alertIsPresent()).accept();
     }
-    public void  dismisslAlert(){
+
+    public void dismisslAlert() {
         wait.until(ExpectedConditions.alertIsPresent()).dismiss();
     }
-    public void typeInPrompt(String text){
+
+    public void typeInPrompt(String text) {
         wait.until(ExpectedConditions.alertIsPresent()).sendKeys(text);
     }
 }

@@ -14,26 +14,31 @@ public class CheckPage extends BasePage {
         super(driver, wait);
     }
 
-    public void goToPage(){
+    public void goToPage() {
         driver.get(PAGE_URL);
     }
-    private boolean verifyIsChecked(By input){
+
+    private boolean verifyIsChecked(By input) {
         return driver.findElement(input).isSelected();
     }
-    public boolean verifyFirstCheckbox(){
+
+    public boolean verifyFirstCheckbox() {
         return verifyIsChecked(inputCheckbox1);
     }
-    public boolean verifySecondCheckbox(){
+
+    public boolean verifySecondCheckbox() {
         return verifyIsChecked(inputCheckbox2);
     }
 
-    private void selectChechbox(By input){
+    private void selectChechbox(By input) {
         driver.findElement(input).click();
     }
-    public void selectFirstCheckbox(){
+
+    public void selectFirstCheckbox() {
         selectChechbox(inputCheckbox1);
     }
-    public void selectSecondCheckbox(){
+
+    public void selectSecondCheckbox() {
         selectChechbox(inputCheckbox2);
     }
 

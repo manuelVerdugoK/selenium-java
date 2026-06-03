@@ -25,6 +25,14 @@
     </test>
 
     <!-- Pruebas End to End exclusivamente -->
-    <!-- ... -->
-
+    <test name="E2E">
+        <groups>
+            <run>
+                <include name="e2e"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="tests"/>
+        </packages>
+    </test>
 </suite>

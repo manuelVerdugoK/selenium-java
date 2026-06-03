@@ -13,22 +13,22 @@ public class LoginPage extends BasePage {
     private final By loginButton = By.className("radius");
 
     public LoginPage(WebDriver driver, WebDriverWait wait) {
-    super(driver, wait);
+        super(driver, wait);
     }
 
-    public void goToPage(){
+    public void goToPage() {
         driver.get(LOGIN_URL);
     }
 
-    public String getUrl(){
+    public String getBaseUrl(){
+        return LOGIN_URL;
+    }
+
+    public String getUrl() {
         return driver.getCurrentUrl();
     }
 
-    public String getTitle(){
-        return driver.getTitle();
-    }
-
-    public void login(String username, String password){
+    public void login(String username, String password) {
         driver.findElement(usernameInput).sendKeys(username);
         driver.findElement(passwordInput).sendKeys(password);
         driver.findElement(loginButton).submit();

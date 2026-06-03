@@ -12,20 +12,20 @@ public class DropdownPage extends BasePage {
     public static final String URL = "https://the-internet.herokuapp.com/dropdown";
     private final By dropdown = By.id("dropdown");
 
-    public DropdownPage(WebDriver driver, WebDriverWait wait){
+    public DropdownPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
-
     }
-    public void goToPage(){
+
+    public void goToPage() {
         driver.get(URL);
     }
 
-    public void selectByValue(int value){
-        select = new Select(driver.findElement(dropdown));;
+    public void selectByValue(int value) {
+        select = new Select(driver.findElement(dropdown));
         select.selectByIndex(value);
     }
 
-    public String verifyIsSelected(){
+    public String verifyIsSelected() {
         return select.getFirstSelectedOption().getText();
     }
 }
