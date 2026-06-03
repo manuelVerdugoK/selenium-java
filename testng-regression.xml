@@ -1,4 +1,5 @@
 <suite name="Suite">
+
     <!-- Pruebas de levantamiento exclusivamente -->
     <test name="Smoke">
         <groups>

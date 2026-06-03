@@ -37,3 +37,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+## Allure result y reports
+allure-results/
+allure-report/
