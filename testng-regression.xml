@@ -1,0 +1,29 @@
+<suite name="Suite">
+    <!-- Pruebas de levantamiento exclusivamente -->
+    <test name="Smoke">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="tests"/>
+        </packages>
+    </test>
+
+    <!-- Pruebas funcionales, por módulo -->
+    <test name="functional">
+        <groups>
+            <run>
+                <include name="functional"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="tests"/>
+        </packages>
+    </test>
+
+    <!-- Pruebas End to End exclusivamente -->
+    <!-- ... -->
+
+</suite>

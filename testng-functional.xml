@@ -1,0 +1,13 @@
+<suite name="Suite">
+    <!-- Pruebas funcionales, por módulo -->
+    <test name="functional">
+        <groups>
+            <run>
+                <include name="functional"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="tests"/>
+        </packages>
+    </test>
+</suite>
