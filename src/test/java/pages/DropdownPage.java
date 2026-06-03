@@ -6,18 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class DropdownPage {
-
-    WebDriver driver;
-    WebDriverWait wait;
+public class DropdownPage extends BasePage {
     Select select;
 
     public static final String URL = "https://the-internet.herokuapp.com/dropdown";
     private final By dropdown = By.id("dropdown");
 
     public DropdownPage(WebDriver driver, WebDriverWait wait){
-        this.driver = driver;
-        this.wait = wait;
+        super(driver, wait);
 
     }
     public void goToPage(){

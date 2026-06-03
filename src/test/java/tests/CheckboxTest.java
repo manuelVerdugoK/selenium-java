@@ -6,8 +6,14 @@ import pages.CheckPage;
 
 public class CheckboxTest extends BaseTests{
     CheckPage page;
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     void setupPage() { page = new CheckPage(driver, wait);}
+
+    @Test(groups = "smoke")
+    void verifyPageIsUp(){
+        page.goToPage();
+        Assert.assertEquals(page.getPageTitle(), "The Internet");
+    }
 
     @Test
     void firstCheckboxTest_positiveCase_haveIsSelectedState() {

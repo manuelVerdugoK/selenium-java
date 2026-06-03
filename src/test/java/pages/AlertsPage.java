@@ -5,10 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AlertsPage {
+public class AlertsPage extends BasePage {
 
-    WebDriver driver;
-    WebDriverWait wait;
     public static final String URL = "https://the-internet.herokuapp.com/javascript_alerts";
     private static final By simpleAlertButton = By.xpath("//button[text()='Click for JS Alert']");
     private static final By confirmAlertButton = By.xpath("//button[text()='Click for JS Confirm']");
@@ -16,8 +14,7 @@ public class AlertsPage {
     private By textDisplayed = By.id("result");
 
     public AlertsPage(WebDriver driver, WebDriverWait wait){
-        this.driver = driver;
-        this.wait = wait;
+        super(driver , wait );
     }
     public void goToPage(){
         driver.get(URL);

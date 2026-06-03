@@ -10,8 +10,14 @@ public class DropdownTest extends BaseTests{
 
     DropdownPage page;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     void setupPage () { page = new DropdownPage(driver, wait );}
+
+    @Test(groups = "smoke")
+    void verifyPageIsUp(){
+        page.goToPage();
+        Assert.assertEquals(page.getPageTitle(), "The Internet");
+    }
 
     @Test
     void selectOption_positiveCase_firstOptionEsSelected(){

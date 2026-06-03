@@ -4,10 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage {
-
-    WebDriver driver;
-    WebDriverWait wait;
+public class LoginPage extends BasePage {
 
     public static final String LOGIN_URL = "https://the-internet.herokuapp.com/login";
 
@@ -15,12 +12,11 @@ public class LoginPage {
     private final By passwordInput = By.id("password");
     private final By loginButton = By.className("radius");
 
-    public LoginPage(WebDriver driver, WebDriverWait wait){
-        this.driver = driver;
-        this.wait = wait;
+    public LoginPage(WebDriver driver, WebDriverWait wait) {
+    super(driver, wait);
     }
 
-    public void goToSite(){
+    public void goToPage(){
         driver.get(LOGIN_URL);
     }
 

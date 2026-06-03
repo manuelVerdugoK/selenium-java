@@ -6,23 +6,29 @@ import pages.LoginPage;
 
 
 public class LoginTest extends BaseTests {
-    LoginPage loginPage;
+    LoginPage page;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     void setupPage(){
-        loginPage = new LoginPage(driver, wait);
+        page = new LoginPage(driver, wait);
+    }
+
+    @Test(groups = "smoke")
+    void verifyPageIsUp(){
+        page.goToPage();
+        Assert.assertEquals(page.getPageTitle(), "The Internet");
     }
 
     @Test
     void loginTest_positiveCase_redirectToNextPage(){
-        loginPage.goToSite();
-        loginPage.login("tomsmith","SuperSecretPassword!");
-        Assert.assertTrue(loginPage.getUrl().contains("secure"));
+        page.goToPage();
+        page.login("tomsmith","SuperSecretPassword!");
+        Assert.assertTrue(page.getUrl().contains("secure"));
     }
     @Test
     void loginTest_negativeCase_keepSameSite(){
-        loginPage.goToSite();
-        loginPage.login("janeDoe","pass_doe");
-        Assert.assertEquals(loginPage.getUrl(), LoginPage.LOGIN_URL);
+        page.goToPage();
+        page.login("janeDoe","pass_doe");
+        Assert.assertEquals(page.getUrl(), LoginPage.LOGIN_URL);
     }
 }

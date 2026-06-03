@@ -4,17 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CheckPage {
-    WebDriver driver;
-    WebDriverWait wait;
+public class CheckPage extends BasePage {
 
     public static final String PAGE_URL = "https://the-internet.herokuapp.com/checkboxes";
     private final By inputCheckbox1 = By.xpath("//*[@id='checkboxes']/input[1]");
     private final By inputCheckbox2 = By.xpath("//*[@id='checkboxes']/input[2]");
 
     public CheckPage(WebDriver driver, WebDriverWait wait) {
-        this.driver = driver;
-        this.wait = wait;
+        super(driver, wait);
     }
 
     public void goToPage(){
