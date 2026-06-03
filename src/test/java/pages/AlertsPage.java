@@ -10,9 +10,9 @@ public class AlertsPage {
     WebDriver driver;
     WebDriverWait wait;
     public static final String URL = "https://the-internet.herokuapp.com/javascript_alerts";
-    public static final By simpleAlertButton = By.xpath("//button[text()='Click for JS Alert']");
-    public static final By confirmAlertButton = By.xpath("//button[text()='Click for JS Confirm']");
-    public static final By textRequestedAlertButton = By.xpath("//button[text()='Click for JS Prompt']");
+    private static final By simpleAlertButton = By.xpath("//button[text()='Click for JS Alert']");
+    private static final By confirmAlertButton = By.xpath("//button[text()='Click for JS Confirm']");
+    private static final By textRequestedAlertButton = By.xpath("//button[text()='Click for JS Prompt']");
     private By textDisplayed = By.id("result");
 
     public AlertsPage(WebDriver driver, WebDriverWait wait){
@@ -22,14 +22,22 @@ public class AlertsPage {
     public void goToPage(){
         driver.get(URL);
     }
-    public void clickButton(By button) {
-        // For example: pass public simpleAlertButton like arg.
+
+    private void clickButton(By button) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(button)).click();
     }
     public String getTextDisplayed(){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(textDisplayed)).getText();
     }
-
+    public void clickSimpleAlert(){
+        clickButton(simpleAlertButton);
+    }
+    public void clickConfirmAlert(){
+        clickButton(confirmAlertButton);
+    }
+    public void clickTextRequestAlert(){
+        clickButton(textRequestedAlertButton);
+    }
     public void acceptAlert(){
         wait.until(ExpectedConditions.alertIsPresent()).accept();
     }
